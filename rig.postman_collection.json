@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "2b2b5f0a-10b7-4e8f-a5ab-a89a1f2aad57",
+		"name": "rig",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "stock-update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " 23",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8787/rig/book/stock-update/{{$randomUUID}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8787",
+							"path": [
+								"rig",
+								"book",
+								"stock-update",
+								"{{$randomUUID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Sherlock Holmes\",\n    \"author\":\"Sir Arthur Canon Doyle\",\n    \"type\":\"detective\",\n    \"price\":\"50\",\n    \"stock\":\"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8787/rig/book",
+							"host": [
+								"localhost"
+							],
+							"port": "8787",
+							"path": [
+								"rig",
+								"book"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "create-order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customerId\":1,\n    \"bookIds\":[\n        1,\n        2\n    ],\n    \"totalPrice\":\"150.50\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8787/rig/order",
+							"host": [
+								"localhost"
+							],
+							"port": "8787",
+							"path": [
+								"rig",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-order-by-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8787/rig/order/getById/{{$guid}}",
+							"host": [
+								"localhost"
+							],
+							"port": "8787",
+							"path": [
+								"rig",
+								"order",
+								"getById",
+								"{{$guid}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Statistic",
+			"item": [
+				{
+					"name": "statistic-customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8787/rig/statistic/customer/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8787",
+							"path": [
+								"rig",
+								"statistic",
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "create-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\":\"sinan\",\n    \"lastname\":\"aydoğan\",\n    \"email\":\"sinanaydogan@gmail.com\",\n    \"password\":\"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8787/rig/customer/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8787",
+							"path": [
+								"rig",
+								"customer",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,31 @@
+version: "3"
+networks:
+  app-network:
+    driver: bridge
+
+services:
+    backend-service:
+        image: rig-application.jar:latest
+        container_name: rig-application
+        ports:
+          - "8787:8787"
+        environment:
+          SPRING_DATASOURCE_URL: jdbc:postgresql://rig-postgresql-db:5432/rig
+          SPRING_DATASOURCE_USERNAME: riguser
+          SPRING_DATASOURCE_PASSWORD: rigpassword
+        networks:
+          - app-network
+    postgres:
+        image: postgres:latest
+        container_name: rig-postgresql-db
+        volumes:
+          - "./init.sql:/docker-entrypoint-initdb.d/init-db.sql"
+        ports:
+          - "5452:5452"
+        restart: always
+        environment:
+          POSTGRES_DB: rig
+          POSTGRES_USER: riguser
+          POSTGRES_PASSWORD: rigpassword
+        networks:
+          - app-network
